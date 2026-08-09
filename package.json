@@ -1,0 +1,64 @@
+{
+  "name": "@pulsepond/react-sdk",
+  "version": "0.1.0",
+  "description": "Explicit, privacy-conscious React bindings for Pulsepond",
+  "license": "Apache-2.0",
+  "keywords": [
+    "analytics",
+    "cloudflare",
+    "events",
+    "pulsepond",
+    "react"
+  ],
+  "homepage": "https://pulsepond.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pulsepond/react-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pulsepond/react-sdk/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "packageManager": "pnpm@10.34.5",
+  "scripts": {
+    "build": "node scripts/clean.mjs && tsc -p tsconfig.build.json",
+    "check": "pnpm typecheck && pnpm test && pnpm build && pnpm check:package",
+    "check:package": "node scripts/check-package.mjs",
+    "test": "node --import tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@pulsepond/typescript-sdk": "^0.1.1"
+  },
+  "peerDependencies": {
+    "react": ">=18.3.0 <20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tsx": "4.23.11",
+    "typescript": "7.0.2"
+  }
+}
