@@ -26,6 +26,16 @@ try {
   ]) {
     assert.equal(files.includes(path), true, `${path} is missing from the npm archive`);
   }
+  const publishedEntry = await run("tar", [
+    "-xOf",
+    archivePath,
+    "package/dist/index.js",
+  ]);
+  assert.equal(
+    publishedEntry.startsWith('"use client";'),
+    true,
+    "the published React entry must preserve its client-boundary directive",
+  );
   assert.equal(packageJson.name, "@pulsepond/react-sdk");
   assert.equal(packageJson.publishConfig.access, "public");
   assert.equal(packageJson.publishConfig.provenance, true);

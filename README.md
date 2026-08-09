@@ -80,13 +80,21 @@ default, and no event is collected automatically. See the
 [TypeScript SDK documentation](https://github.com/Pulsepond/typescript-sdk)
 before enabling persistent random identifiers.
 
-## Server rendering
+## Server rendering and React Server Components
 
-The bindings are safe to render on a server when the application supplies a
-client-compatible object. This package itself does not access `window`, start
-timers, or create a browser client. Do not call the browser
-`createPulsepond()` factory in a server environment; a separate server
-TypeScript transport owns that runtime boundary.
+The published entry is marked as a React client boundary because context and
+hooks cannot run in a React Server Component. With Next.js App Router, import
+`PulsepondProvider` and `usePulsepond` only from a Client Component. Do not pass
+a Pulsepond client through Server Component props: class instances are not a
+serializable server-to-client contract.
+
+Traditional server rendering of a Client Component remains safe when the
+application supplies a client-compatible object. This package itself does not
+access `window`, start timers, or create a browser client. The browser
+`createPulsepond()` factory does require Fetch, Web Crypto, TextEncoder, and
+AbortController, so create that client only in the browser-owned application
+bootstrap rather than while executing a server or RSC module. A separate
+server TypeScript transport owns server-side event delivery.
 
 ## Development
 

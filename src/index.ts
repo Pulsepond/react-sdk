@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, createElement, useContext } from "react";
 import type { ReactElement, ReactNode } from "react";
 import type { PulsepondClient } from "@pulsepond/typescript-sdk";
