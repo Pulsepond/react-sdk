@@ -1,5 +1,12 @@
 # Pulsepond React SDK
 
+> [!IMPORTANT]
+> This repository is being archived and receives no further releases. React bindings
+> now live in the [`typescript-sdk` repository](https://github.com/Pulsepond/typescript-sdk/tree/main/packages/react)
+> and are published as `@pulsepond/react`. The core client remains
+> `@pulsepond/typescript-sdk`; no transport or analytics behavior moved into
+> the React layer.
+
 `@pulsepond/react-sdk` provides thin React bindings for the browser-only
 [`@pulsepond/typescript-sdk`](https://github.com/Pulsepond/typescript-sdk).
 It keeps one explicitly created Pulsepond client available through React
