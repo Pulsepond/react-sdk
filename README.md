@@ -1,7 +1,7 @@
 # Pulsepond React SDK
 
 > [!IMPORTANT]
-> This repository is archived and receives no further releases. React bindings
+> This repository is being archived and receives no further releases. React bindings
 > now live in the [`typescript-sdk` repository](https://github.com/Pulsepond/typescript-sdk/tree/main/packages/react)
 > and are published as `@pulsepond/react`. The core client remains
 > `@pulsepond/typescript-sdk`; no transport or analytics behavior moved into
